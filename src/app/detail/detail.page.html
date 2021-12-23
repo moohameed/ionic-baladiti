@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title start>تفاصيل القائمة</ion-title>
+    <ion-buttons end>
+      <img width="50" src="assets/imgs/Baladiti-2018.svg">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    
+      <ion-item>
+        <h2 align-right> <b>إسم البلدية :</b> {{Kaima.nomArabeDelegation}}</h2>
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b> القائمة :</b> {{Kaima.list_nom}}</h3>
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b> الرئيس :</b> {{Kaima.list_tete}}</h3>
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b> العدد الرتبي:</b> {{Kaima.list_num}}</h3>
+      </ion-item>
+
+      
+     
+      
+   
+    <ion-avatar item-start>
+      <img *ngIf="Kaima.list_logo !== null" [src]="Kaima.list_logo">
+      <img *ngIf="Kaima.list_logo === null" src="assets/imgs/100x100.svg">
+    </ion-avatar>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <h2><b>القائمة</b></h2>
+    </ion-card-header>
+    <ion-card-content>
+      <button block ion-button color="secondary"
+              (click)="openModelKaima(Kaima.list_image,Kaima.list_valide,Kaima.list_publie)">إضغط هنا لرؤية القائمة</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <h2><b>البيان الانتخابي</b></h2>
+    </ion-card-header>
+    <ion-card-content>
+      <button block ion-button color="secondary"
+              (click)="openModelBayen(Kaima.list_imageGroup,Kaima.list_valide,Kaima.list_publie)">إضغط هنا لرؤية البيان الإنتخابي</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer >
+  <ion-tab-bar color="warning">
+  <ion-tab-button routerLink="/kaima">
+    <ion-icon name="backspace"></ion-icon>
+  <ion-label  color="danger">القائمات
+  </ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+</ion-footer>

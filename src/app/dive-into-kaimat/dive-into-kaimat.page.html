@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title slot="end" class="title"> البحث عن القائمة</ion-title>
+  <ion-img slot="start"  class="nav-img" src="assets/imgs/Baladiti-2018.svg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <h2 align-right slot="end"> <b>إسم الولاية :</b>  {{wilayaName}}</h2>
+  </ion-item>
+  <ion-item>
+    <h3 align-right slot="end"> <b> إسم البلدية :</b> {{baladiaName}}</h3>
+  </ion-item>
+  <ion-chip *ngIf="baladiaNbrChaise !== null" style="margin:20px auto" >
+    <ion-label color="primary" > عدد المقاعد : {{baladiaNbrChaise}}  </ion-label>
+    <ion-icon color="primary"><b color="secondary"> {{baladiaNbrChaise}}</b></ion-icon>
+  </ion-chip>
+  <ion-chip style="margin:20px auto">
+    <ion-label color="primary"> عدد القائمات المترشحة :{{numberOfKaima}} </ion-label>
+    <ion-icon color="primary"><b color="secondary">{{numberOfKaima}}</b></ion-icon>
+  </ion-chip>
+  <ion-item *ngIf="etatLists" color="secondary">
+    <ion-label>إضغط هنا لتغيير نوعية القائمة</ion-label>
+    <ion-select #C (ionChange)="onChange(C.value)" [(ngModel)]="type" okText="موافق" cancelText="رفض">
+      <ion-select-option value="0">كل القائمات</ion-select-option>
+      <ion-select-option value="1">القائمات الحزبية</ion-select-option>
+      <ion-select-option value="2">القائمات الإئتلافية</ion-select-option>
+      <ion-select-option value="3">القائمات المستقلة</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-list  *ngIf="etatLists">
+    <ion-item *ngFor="let item of kaima | async">
+      <ion-thumbnail *ngIf="item.list_logo !== null" item-start>
+        <img [src]="item.list_logo">
+      </ion-thumbnail>
+      <ion-thumbnail *ngIf="item.list_logo === null" item-start>
+        <img src="assets/imgs/250x250.svg">
+      </ion-thumbnail>
+      <h2>{{item.list_nom}}</h2>
+      <p>{{item.list_tete}}</p>
+       <button (click)="goToDetail(item)" ion-button color="secondary" item-end>التفاصيل</button> 
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-tab-bar color="warning">
+  <ion-tab-button routerLink="/kaima" color >
+    <ion-icon name="backspace"></ion-icon>
+  <ion-label  color="danger">القائمات
+  </ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+</ion-footer>

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title slot="end" class="title"> النتائج </ion-title>
+  <ion-img slot="start"  class="nav-img" src="assets/imgs/Baladiti-2018.svg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+  
+  
+  <ion-content>
+  
+    <div class="content"><h4 flex-direction: row-reverse>في أي ولاية توجد بلديتك ؟</h4></div>
+    <ion-item>
+      <ion-label *ngIf="wilayaSelectionner === ''">إضغط هنا لإختيار الولاية</ion-label>
+      <ion-label *ngIf="wilayaSelectionner !== ''">إضغط هنا لتغيير الولاية</ion-label>
+      <ion-select color="secondary" (ngModelChange)="onListwilayaChange($event)" [(ngModel)]="wilayaSelectionner"   okText="موافق" cancelText="أغلق">
+        <ion-select-option *ngFor="let item of wilayat | async" [value]="item.id">{{item.nomArabe}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div  *ngIf="wilayaSelectionner !== ''">
+    </div> 
+  
+  
+  
+  
+  
+     <h4  *ngIf="wilayaSelectionner !== ''">قم باختيار بلديتك</h4>
+    <ion-item *ngIf="wilayaSelectionner !== ''">
+      <ion-label *ngIf="baladiaSelectionner === ''">إضغط هنا لإختيار البلدية</ion-label>
+      <ion-label *ngIf="baladiaSelectionner !== ''">إضغط هنا لتغيير البلدية</ion-label>
+      <ion-select (ngModelChange)="onListBaladiaChange($event)" 
+                  [(ngModel)]="baladiaSelectionner"  cancelText="أغلق" okText="موافق">
+        <ion-select-option *ngFor="let item of baladiet | async" [value]="item.id">{{item.nomArabe}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div style="height:50px;margin-top:50px" *ngIf="baladiaSelectionner !== ''">
+    
+      <button (click)="openPgae()" ion-button color = "secondary" block>    البحث عن النتائج</button> 
+      
+     
+    </div> 
+
+</ion-content>
+<ion-tab-bar slot="bottom"  color="warning">
+  <ion-tab-button routerLink="/results">
+    <ion-icon name="list" color="danger"></ion-icon>
+    <ion-label color="danger">النتائج
+    </ion-label>
+  </ion-tab-button>
+
+<ion-tab-button routerLink="/kaima">
+  <ion-icon name="search" color="dark"></ion-icon>
+<ion-label  class="lab" color="dark">القائمات
+</ion-label>
+</ion-tab-button>
+
+<ion-tab-button  routerLink="/about">
+  <ion-icon name="information-circle" color="dark"></ion-icon>
+<ion-label  color="dark">من نحن
+</ion-label>
+</ion-tab-button>
+
+<ion-tab-button  routerLink="/home">
+  <ion-icon name="home" color="dark"></ion-icon>
+  <ion-label class="lab" color="dark">بلديتي 22018
+  </ion-label>
+</ion-tab-button>
+</ion-tab-bar>

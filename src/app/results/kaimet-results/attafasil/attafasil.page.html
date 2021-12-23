@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title slot="end" class="title"> attafasil</ion-title>
+  <ion-img slot="start"  class="nav-img" src="assets/imgs/Baladiti-2018.svg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card >
+    <ion-item>
+      <h2 align-right> <b>عدد المقاعد :</b> {{baladiaNbrChaise}}</h2>
+    </ion-item> 
+   
+      <ion-item>
+        <h3 align-right> <b> عدد القائمات :</b> {{numberOfKaima}}</h3>
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b>عدد الناخبين المسجلين:</b> {{nbrInscrits}}</h3>
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b> عدد الأصوات :</b> {{ nbrTotalsDeVotes}}</h3>
+      </ion-item>
+      <ion-item>
+        <h3 align-right *ngIf="tauxParticipation !== '0'"> <b> نسبة المشاركة :</b> {{tauxParticipation}}%</h3>
+
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b> عدد الأصوات الصحيحة :</b> {{ nbVotesAcceptes}}</h3>
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b> عدد الأصوات البيضاء:</b> {{ nbrVotesBlancs}}</h3>
+      </ion-item>
+      <ion-item>
+        <h3 align-right> <b>عدد الأصوات الملغاة:</b> {{nbrVotesAnnules}}</h3> 
+      </ion-item>
+      
+      
+     
+      
+      
+    
+    
+  </ion-card>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-tab-bar color="warning">
+  <ion-tab-button routerLink="/results/kaimet-results" color >
+    <ion-icon name="backspace"></ion-icon>
+  <ion-label  color="danger">القائمات
+  </ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+</ion-footer>

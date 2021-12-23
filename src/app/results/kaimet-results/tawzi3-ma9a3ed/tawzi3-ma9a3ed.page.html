@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title slot="end" class="title"> tawzi3-ma9a3ed</ion-title>
+  <ion-img slot="start"  class="nav-img" src="assets/imgs/Baladiti-2018.svg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType">
+  </canvas>
+</div>
+</ion-content>

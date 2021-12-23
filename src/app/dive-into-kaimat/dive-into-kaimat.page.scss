@@ -1,0 +1,18 @@
+
+    .select-text {
+      font-weight: 700;
+    }
+    ion-chip{
+      position: relative;
+      display: block;
+    }
+    ion-chip ion-icon{
+      position: absolute!important;
+      left: 0;
+      top:0
+    }
+    .item-select .label-md{
+      font-size: 14px;
+      color: #000;
+    }
+  
